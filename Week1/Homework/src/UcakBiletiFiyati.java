@@ -12,7 +12,6 @@ public class UcakBiletiFiyati {
         Scanner scanner = new Scanner(System.in);
 
         int age, passengerType;
-        boolean isError = false;
         double distance, ageDiscount = 0, passengerTypeDiscount, price, totalPrice;
 
         System.out.print("Mesafe : ");
