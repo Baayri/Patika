@@ -12,6 +12,7 @@ public class UcakBiletiFiyati {
         Scanner scanner = new Scanner(System.in);
 
         int age, passengerType;
+        boolean isError = false;
         double distance, ageDiscount = 0, passengerTypeDiscount, price, totalPrice;
 
         System.out.print("Mesafe : ");
@@ -33,19 +34,24 @@ public class UcakBiletiFiyati {
             ageDiscount = price * 0.30;
         }
 
-        switch (passengerType){
-            case 1:
-                totalPrice = price - ageDiscount;
-                System.out.println("Toplam Tutar : " + totalPrice + " TL");
-                break;
-            case 2:
-                price = (price - ageDiscount);
-                passengerTypeDiscount = price * 0.20;
-                totalPrice =  (price - passengerTypeDiscount) * 2;
-                System.out.println("Toplam Tutar : " + totalPrice + " TL");
-                break;
-            default:
-                System.out.println("Hatalı Veri Girdiniz!");
+        if (distance > 0 && age > 0){
+            switch (passengerType){
+                case 1:
+                    totalPrice = price - ageDiscount;
+                    System.out.println("Toplam Tutar : " + totalPrice + " TL");
+                    break;
+                case 2:
+                    price = (price - ageDiscount);
+                    passengerTypeDiscount = price * 0.20;
+                    totalPrice =  (price - passengerTypeDiscount) * 2;
+                    System.out.println("Toplam Tutar : " + totalPrice + " TL");
+                    break;
+                default:
+                    System.out.println("Hatalı Veri Girdiniz!");
+            }
+        }
+        else {
+            System.out.println("Hatalı Veri Girdiniz!");
         }
     }
 }
